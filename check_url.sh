@@ -34,7 +34,7 @@ check_url () {
 
     case $1 in
     *"faz.net"*)
-        if [ -n "$(curl -s $1 | grep 'section class="js-atc-ContainerPaywall atc-ContainerPaywall"')" ]; then
+        if [ -n "$(curl -s $1 | grep 'js-ctn-PaywallTeasers')" ]; then
             return 0
         else
             return 1
