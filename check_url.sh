@@ -6,6 +6,7 @@
 # - Spiegel plus
 # - faz.net plus
 # - Zeit plus
+# - Heise plus
 #
 # The script was written for personal use, hence expecting a docker setup.
 # It was created to be run via the hosts cron and expects database credentials to be in /root/.my.cnf
@@ -49,6 +50,13 @@ check_url () {
         ;;
     *"zeit.de"*)
         if [ -n "$(curl -s $1 | grep 'class="zplus-badge')" ]; then
+            return 0
+        else
+            return 1
+        fi
+        ;;
+    *"heise.de"*)
+        if [ -n "$(curl -s $1 | grep 'a-paid-content-teaser')" ]; then
             return 0
         else
             return 1
