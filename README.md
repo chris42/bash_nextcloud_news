@@ -3,12 +3,13 @@ Supported plus websites:
 - Spiegel plus
 - faz.net plus
 - Zeit plus
+- Heise plus
 
 The script was written for personal use, hence expecting a docker setup.
 It was created to be run via the hosts cron and expects database credentials to be in /root/.my.cnf
 within the database container (mariadb will look there)
 
-Copyright (C) 2019 chris42
+Copyright (C) 2020 chris42
 
 This program is free software; you can redistribute it and/or modify it under the terms 
 of the GNU General Public License as published by the Free Software Foundation; 
