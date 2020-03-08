@@ -42,7 +42,7 @@ check_url () {
         fi
         ;;
     *"spiegel.de"*)
-        if [ -n "$(curl -s $1 | grep 'data-component=Paywall')" ]; then
+        if [ -n "$(curl -s $1 | grep 'data-component="Paywall')" ]; then
             return 0
         else
             return 1
