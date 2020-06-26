@@ -4,6 +4,7 @@ Supported plus websites:
 - faz.net plus
 - Zeit plus
 - Heise plus
+- Sueddeutsche plus
 
 The script was written for personal use, hence expecting a docker setup.
 It was created to be run via the hosts cron and expects database credentials to be in /root/.my.cnf

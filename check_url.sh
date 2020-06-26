@@ -7,12 +7,13 @@
 # - faz.net plus
 # - Zeit plus
 # - Heise plus
+# - Sueddeutsche plus
 #
 # The script was written for personal use, hence expecting a docker setup.
 # It was created to be run via the hosts cron and expects database credentials to be in /root/.my.cnf
 # within the database container (mariadb will look there)
 #
-# Copyright (C) 2020 chris42
+# Copyright (C) 2019-2020 chris42
 #
 # This program is free software; you can redistribute it and/or modify it under the terms 
 # of the GNU General Public License as published by the Free Software Foundation; 
@@ -42,7 +43,7 @@ check_url () {
         fi
         ;;
     *"spiegel.de"*)
-        if [ -n "$(curl -s $1 | grep 'data-component="Paywall')" ]; then
+        if [[ -n "$(curl -s $1 | grep 'data-component="Paywall')" ]]; then
             return 0
         else
             return 1
@@ -62,9 +63,16 @@ check_url () {
             return 1
         fi
         ;;
+    *"sueddeutsche.de"*)
+        if [ -n "$(curl -s $1 | grep '"pcat":"paid"')" ]; then
+            return 0
+        else
+            return 1
+        fi
+        ;;
     *)
         # Not supported url, return false
-        return 1        
+        return 1
         ;;
     esac
 }
