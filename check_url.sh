@@ -36,35 +36,35 @@ check_url () {
 
     case $1 in
     *"faz.net"*)
-        if [ -n "$(curl -s $1 | grep 'js-ctn-PaywallTeasers')" ]; then
+        if [ -n "$(curl -sL $1 | grep 'js-ctn-PaywallTeasers')" ]; then
             return 0
         else
             return 1
         fi
         ;;
     *"spiegel.de"*)
-        if [[ -n "$(curl -s $1 | grep 'data-component="Paywall')" ]]; then
+        if [[ -n "$(curl -sL $1 | grep 'data-component="Paywall')" ]]; then
             return 0
         else
             return 1
         fi
         ;;
     *"zeit.de"*)
-        if [ -n "$(curl -s $1 | grep 'class="zplus-badge')" ]; then
+        if [ -n "$(curl -sL $1 | grep 'class="zplus-badge')" ]; then
             return 0
         else
             return 1
         fi
         ;;
     *"heise.de"*)
-        if [ -n "$(curl -s $1 | grep 'a-paid-content-teaser')" ]; then
+        if [ -n "$(curl -sL $1 | grep 'a-paid-content-teaser')" ]; then
             return 0
         else
             return 1
         fi
         ;;
     *"sueddeutsche.de"*)
-        if [ -n "$(curl -s $1 | grep '"pcat":"paid"')" ]; then
+        if [ -n "$(curl -sL $1 | grep '"pcat":"paid"')" ]; then
             return 0
         else
             return 1
