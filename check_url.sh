@@ -36,14 +36,14 @@ check_url () {
 
     case $1 in
     *"faz.net"*)
-        if [ -n "$(curl -sL $1 | grep 'js-ctn-PaywallTeasers')" ]; then
+        if [ -n "$(curl -sL $1 | grep 'adsc_paywall =  true')" ]; then
             return 0
         else
             return 1
         fi
         ;;
     *"spiegel.de"*)
-        if [[ -n "$(curl -sL $1 | grep 'data-component="Paywall')" ]]; then
+        if [[ -n "$(curl -sL $1 | grep '"paywall":{"attributes":{"is_active":true}')" ]]; then
             return 0
         else
             return 1
@@ -57,7 +57,7 @@ check_url () {
         fi
         ;;
     *"heise.de"*)
-        if [ -n "$(curl -sL $1 | grep 'a-paid-content-teaser')" ]; then
+        if [ -n "$(curl -sL $1 | grep 'property="ob:paid" content="true"')" ]; then
             return 0
         else
             return 1
