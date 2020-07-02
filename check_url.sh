@@ -50,7 +50,7 @@ check_url () {
         fi
         ;;
     *"zeit.de"*)
-        if [ -n "$(curl -sL $1 | grep 'class="zplus-badge')" ]; then
+        if [ -n "$(curl -sL $1 | grep 'property="lp:paywall"')" ]; then
             return 0
         else
             return 1
